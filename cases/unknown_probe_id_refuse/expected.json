@@ -1,0 +1,10 @@
+{
+  "checks": {},
+  "cmd": "leak",
+  "codes": [
+    "UNKNOWN_PROBE_ID"
+  ],
+  "exit": 1,
+  "probes": {},
+  "verdict": "REFUSE"
+}

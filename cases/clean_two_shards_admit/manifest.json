@@ -1,0 +1,35 @@
+{
+  "allowed_licenses": [
+    "cc-by-4.0",
+    "mit",
+    "cc0-1.0"
+  ],
+  "allowed_sources": [
+    "synthetic-corpus-a",
+    "synthetic-corpus-b"
+  ],
+  "shards": [
+    {
+      "file": "a.jsonl",
+      "label_distribution": {
+        "neg": 0.5,
+        "pos": 0.5
+      },
+      "license": "cc-by-4.0",
+      "sha256": "08332fbe22128a5ae18473d31c802a0f602cf4b769797ed36aa26bf730588777",
+      "signature": "cc3331f04635a4196df1202cfdc0207965e46d117cdf870cacb1b8797559950b",
+      "source": "synthetic-corpus-a"
+    },
+    {
+      "file": "b.jsonl",
+      "label_distribution": {
+        "neg": 0.5,
+        "pos": 0.5
+      },
+      "license": "mit",
+      "sha256": "a3d44ee6c60d3637dc498a535c4b5c65057046e83c5a056b9dab822ea5877b6d",
+      "signature": "5aa194154237935a6d108ac390dc0c7890fcc805e89ebb70bd6e424e3a52ddde",
+      "source": "synthetic-corpus-b"
+    }
+  ]
+}

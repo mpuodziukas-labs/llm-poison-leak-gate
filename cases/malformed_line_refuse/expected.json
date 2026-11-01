@@ -1,0 +1,11 @@
+{
+  "checks": {},
+  "cmd": "leak",
+  "codes": [
+    "MALFORMED_LINE",
+    "PROBE_MISSING"
+  ],
+  "exit": 1,
+  "probes": {},
+  "verdict": "REFUSE"
+}

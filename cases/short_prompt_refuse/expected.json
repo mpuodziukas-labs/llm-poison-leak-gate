@@ -1,0 +1,10 @@
+{
+  "checks": {},
+  "cmd": "leak",
+  "codes": [
+    "PROMPT_TOO_SHORT"
+  ],
+  "exit": 1,
+  "probes": {},
+  "verdict": "REFUSE"
+}

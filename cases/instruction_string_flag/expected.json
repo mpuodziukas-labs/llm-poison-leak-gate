@@ -1,0 +1,8 @@
+{
+  "cmd": "poison",
+  "codes": [
+    "INSTRUCTION_STRING:a.jsonl"
+  ],
+  "exit": 1,
+  "verdict": "FLAGGED"
+}

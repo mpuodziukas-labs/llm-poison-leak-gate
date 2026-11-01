@@ -1,0 +1,8 @@
+{
+  "cmd": "poison",
+  "codes": [
+    "SHARD_MISSING:b.jsonl"
+  ],
+  "exit": 1,
+  "verdict": "REFUSE"
+}

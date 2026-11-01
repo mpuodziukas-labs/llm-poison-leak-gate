@@ -1,0 +1,8 @@
+{
+  "cmd": "poison",
+  "codes": [
+    "BACKDOOR_TRIGGER:a.jsonl"
+  ],
+  "exit": 1,
+  "verdict": "FLAGGED"
+}

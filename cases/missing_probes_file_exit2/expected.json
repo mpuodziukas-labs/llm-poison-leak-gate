@@ -1,0 +1,8 @@
+{
+  "checks": {},
+  "cmd": "leak",
+  "codes": [],
+  "exit": 2,
+  "probes": {},
+  "verdict": null
+}

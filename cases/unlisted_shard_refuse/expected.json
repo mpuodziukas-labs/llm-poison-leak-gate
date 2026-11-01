@@ -1,0 +1,8 @@
+{
+  "cmd": "poison",
+  "codes": [
+    "UNLISTED_SHARD:c.jsonl"
+  ],
+  "exit": 1,
+  "verdict": "REFUSE"
+}

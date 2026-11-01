@@ -1,0 +1,24 @@
+{
+  "allowed_licenses": [
+    "cc-by-4.0",
+    "mit",
+    "cc0-1.0"
+  ],
+  "allowed_sources": [
+    "synthetic-corpus-a",
+    "synthetic-corpus-b"
+  ],
+  "shards": [
+    {
+      "file": "a.jsonl",
+      "label_distribution": {
+        "neg": 0.5,
+        "pos": 0.5
+      },
+      "license": "cc-by-4.0",
+      "sha256": "247802978f7dca2aa787c54302903d038b644756d81c56d4f89d718dc8d44893",
+      "signature": "4b56b7748d12422e54d2e7eac4440ad76ea0e80f7210650f5bb5bc5411e79f65",
+      "source": "synthetic-corpus-a"
+    }
+  ]
+}

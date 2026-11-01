@@ -1,0 +1,8 @@
+{
+  "cmd": "poison",
+  "codes": [
+    "SIGNATURE_MISMATCH:a.jsonl"
+  ],
+  "exit": 1,
+  "verdict": "REFUSE"
+}
