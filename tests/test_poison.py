@@ -375,3 +375,10 @@ def test_default_report_name_is_poison_report_in_the_working_directory(tmp_path)
     finally:
         os.chdir(old)
     assert os.path.exists(os.path.join(str(tmp_path), "poison-report.json"))
+
+
+def test_deeply_nested_shard_line_is_a_refusal_not_a_crash(tmp_path):
+    mp, data = build(tmp_path, {"a.jsonl": "[" * 200000 + "\n"})
+    rp = os.path.join(str(tmp_path), "r.json")
+    rc, out, err = call(["poison", mp, data, "--report", rp])
+    assert rc == 1 and "MALFORMED_SHARD:a.jsonl" in codes(json.load(open(rp)))

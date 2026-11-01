@@ -314,3 +314,8 @@ def test_reports_and_output_are_byte_identical_across_runs(tmp_path):
         rc, out, _ = call(["leak", pp, tp, bp, "--report", rp])
         outs.append((rc, out, open(rp, "rb").read()))
     assert outs[0] == outs[1]
+
+
+def test_deeply_nested_transcript_line_is_a_refusal_not_a_crash(tmp_path):
+    rc, rep, out = leak(tmp_path, PROMPT, {"p1": "x"}, transcript="[" * 200000 + "\n")
+    assert rc == 1 and rep["verdict"] == "REFUSE"

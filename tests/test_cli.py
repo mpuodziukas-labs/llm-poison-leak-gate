@@ -78,3 +78,12 @@ def test_every_flag_and_refusal_code_the_gate_can_emit_has_a_case():
         for v in exp.get("checks", {}).values():
             seen.update(v)
     assert want <= seen, sorted(want - seen)
+
+
+def test_evaluate_rejects_arguments_it_does_not_take():
+    import subprocess
+    import sys as _sys
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    r = subprocess.run([_sys.executable, os.path.join(here, "evaluate.py"), "--bogus"],
+                       capture_output=True, text=True)
+    assert r.returncode == 2 and "usage" in r.stderr and r.stdout == ""

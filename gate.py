@@ -71,7 +71,10 @@ def _no_const(name: str) -> Any:
 
 
 def loads(text: str) -> Any:
-    return json.loads(text, object_pairs_hook=_no_dups, parse_constant=_no_const)
+    try:
+        return json.loads(text, object_pairs_hook=_no_dups, parse_constant=_no_const)
+    except RecursionError:
+        raise ValueError("nesting too deep")
 
 
 def read_raw(path: str, inputs: List[Dict[str, Any]]) -> bytes:

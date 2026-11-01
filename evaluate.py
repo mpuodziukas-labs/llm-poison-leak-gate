@@ -73,7 +73,11 @@ def run_case(name):
     return json.dumps(want, sort_keys=True), json.dumps(shown, sort_keys=True) + ("" if ok else " MISMATCH"), ok
 
 
-def main():
+def main(argv=None):
+    args = sys.argv[1:] if argv is None else argv
+    if args:
+        print("usage: python3 evaluate.py   (takes no arguments)", file=sys.stderr)
+        return 0 if args in (["-h"], ["--help"]) else 2
     names = sorted(n for n in os.listdir(CASES) if os.path.isdir(os.path.join(CASES, n)))
     rows, matched = [], 0
     print("| case | expected | got | match |")

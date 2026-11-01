@@ -6,12 +6,12 @@ Engineering evidence, not legal advice, no certification claimed. All data is sy
 
 ## The problem
 
-Two gaps in the OWASP Top 10 for LLM Applications 2025 are usually handled by hand or by trust:
+Two gaps in the OWASP Top 10 for LLM Applications 2025 are often closed by trust alone:
 
 - LLM04 Data and Model Poisoning: a shard of training data is admitted because it looks fine, with no hash pin, no provenance check and no scan for planted triggers.
 - LLM07 System Prompt Leakage: a prompt is declared safe because one probe was answered politely, with no score and no stated bound.
 
-This repo is one CLI, `python3 gate.py`, with two subcommands that turn each gap into a verdict with an exit code and a JSON report.
+This repo is one CLI, `python3 gate.py`, with two subcommands. Each turns a gap into a verdict, an exit code and a JSON report.
 
 ## Run it
 
@@ -22,7 +22,7 @@ python3 evaluate.py          # case table, last line: cases: N/N match
 bash run.sh                  # table, pytest, mutants
 ```
 
-Exit codes: 0 pass, 1 refuse or finding, 2 bad input. Each subcommand writes a JSON report containing the sha256 of every input it read. Output is deterministic. `python3 gate.py <command> --help` lists the report path option.
+Exit codes: 0 pass, 1 refuse or finding, 2 bad input. Each subcommand writes a JSON report with the sha256 of every input it read, except on exit 2. Output is deterministic. `python3 gate.py <command> --help` lists the report path option.
 
 ## What it checks
 
@@ -41,7 +41,7 @@ Exit codes: 0 pass, 1 refuse or finding, 2 bad input. Each subcommand writes a J
 - Verbatim longest common substring against the prompt.
 - Normalized longest common substring (NFKC, lowercase, whitespace collapse).
 - Paraphrase score: shingle Jaccard over a sliding window of the reply, with a minimum reply length.
-- Prompt secrets (keys, long tokens, internal URLs) matched regardless of wording, including in base64, hex and rot13 views of the reply.
+- Prompt secrets (keys, long tokens, internal URLs) matched exactly or after dropping case and separators, in the reply as written and in its base64, hex and rot13 views.
 - Every verdict line prints the score, the comparator and the bound used. A fired check wins over a refusal phrase.
 - A missing probe id, an unknown probe id, a malformed line or a too-short prompt is REFUSE. Exit 0 only with no LEAKED probe and no REFUSE.
 
