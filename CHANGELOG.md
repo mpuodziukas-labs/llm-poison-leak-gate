@@ -1,4 +1,5 @@
 # Changelog
 
+## 2026-11-18 | SHA: this commit | ci: pin supported Python, run tools from PATH
 ## 2026-11-01 | SHA: 0693bc3 | fix: bad-input exits, argv usage, README trims
 ## 2026-11-01 | SHA: 07ddeb4 | feat: llm-poison-leak-gate proof repo
